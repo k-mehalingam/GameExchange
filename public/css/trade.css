@@ -1,0 +1,15 @@
+.item-image {
+    width: 40%;
+    min-height: 40%;
+    margin-right: 2%;
+}
+.item-info {
+    margin-top: 2%;
+}
+.item-sale {
+    display: flex;
+}
+.item {
+    margin: 2%;
+
+}
