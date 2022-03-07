@@ -6,19 +6,23 @@
         <div class="item">
             <div class="item-sale">
                 <aside class="item-image">
-                    <img class="card-img-top" src="/assests/images/shooting.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="<%= game.image %> " alt="Card image cap" style="max-width:50%;height:auto;">
                 </aside>
                 <div class="item-btns">
-                    <h4> Counter Strike: Go</h4>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Make Exchange</button>
-                        <button type="clear" class="btn btn-secondary">Rate</button>
-                    </div>
+                    <h4><%= game.name%></h4>
+                    <form>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary" id="update" value="update"
+                            formmethod="GET" formaction="/trades/<%=game.id%>/edit">Edit</button>
+                            <button type="submit" class="btn btn-secondary" id="delete" value="delete"
+                            formmethod="POST" formaction="/trades/<%=game.id%>?_method=DELETE">Delete</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="item-info">
                 <h3>Description:</h3>
-                Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dust2, etc.).
+                <%= game.description %> 
             </div>
         </div>
     </div>

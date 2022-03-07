@@ -1,0 +1,39 @@
+<link href="/css/newtrade.css" rel="stylesheet" type="text/css">
+        <%- include('../partials/header'); %>
+<div class="container">
+    <div class="main-container">
+        <h3>Edit your Trade</h3>
+        <form method="POST" action="/trades/<%= game.id %>?_method=PUT" >
+            <div class="mb-3">
+                <label for="name" class="form-label">Game Name</label>
+                <input type="text" class="form-control" placeholder="Enter game name" id="name" name="name" value="<%=game.name%>">
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Game Category</label>
+                <input type="text" placeholder="Enter game category" class="form-control" id="category" name="category" value="<%=game.category%>">
+            </div>
+            <div class="mb-3">
+                <label for="device_type" class="form-label">Game Device</label>
+                    <select class="form-select" aria-label="Default select" name="device_type" id="device_type">
+                        <% var options = ["playstation", "xbox", "nintindo", "pc"]; %>
+                        <% options.forEach((option)=>{ %>
+                            <% if(option == game.device_type) {%>
+                                <option value="<%= option%>" selected ><%= option%></option>
+                            <%} else {%>
+                                <option value="<%= option%>"><%= option%></option>
+                            <%}%>
+                        <%});%>
+                    </select>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Game Description</label>
+                <textarea id="description" class="form-control" name="description" value="description" rows="4" cols="50"><%=game.description%></textarea>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="clear" class="btn btn-secondary">Clear Form</button>
+            </div>
+        </form>
+    </div>
+</div>
+        <%- include('../partials/footer'); %> 

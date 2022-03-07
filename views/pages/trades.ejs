@@ -2,44 +2,27 @@
 <%- include('../partials/header'); %>
 <div class="container">
     <div class="main-container">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="/assests/images/shooting.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Action</h5>
-                <p class="card-text">Love Action? Good Choice</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <a href="/trade" class="card-link">FPS</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="/trade" class="card-link">TPS</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="/trade" class="card-link">Battle Arena</a>
-                </li>
-            </ul>
-            <!-- <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-            </div> -->
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="/assests/images/moba.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">MOBA</h5>
-                <p class="card-text">Love Strategy? Lets Conquer</p>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Ancient</li>
-                <li class="list-group-item">Shooting</li>
-                <li class="list-group-item">Conquest</li>
-            </ul>
-            <!-- <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-            </div> -->
-        </div>
+        <% if (Object.keys(categories).length) {%>
+            <% Object.keys(categories).forEach((category) => {%>  
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src=<%= categories[category][0].device_img %>  alt="Card image cap" style="max-width:50%;height:auto;">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= category %> </h5>
+                        <!-- <p class="card-text">Love Action? Good Choice</p> -->
+                    </div>
+                    <% var objs = categories[category]; %> 
+                    <ul class="list-group list-group-flush">
+                        <% objs.forEach((game)=>{ %>
+                        <li class="list-group-item">
+                            <a href="/trades/<%= game.id %>" class="card-link"><%= game.name %></a>
+                        </li>
+                        <% }); %> 
+                    </ul>
+                </div>
+                <% }); %> 
+        <% } else { %>
+            <p> Oops. No categories decided yet</p>
+        <% } %>
     </div>
 </div>
 <%- include('../partials/footer'); %> 

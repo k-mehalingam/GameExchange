@@ -19,6 +19,9 @@
   "homepage": "https://github.com/k-mehalingam/GameExchange#readme",
   "dependencies": {
     "ejs": "^3.1.6",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0",
+    "uuid": "^8.3.2"
   }
 }

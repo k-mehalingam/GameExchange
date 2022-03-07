@@ -3,30 +3,30 @@
 <div class="container">
     <div class="main-container">
         <h3>Trade your Game</h3>
-        <form>
+        <form action='/trades' method="POST">
             <div class="mb-3">
-                <label for="g_name" class="form-label">Game Name</label>
-                <input type="text" class="form-control" placeholder="Enter game name" id="g_name" name="g_name">
+                <label for="name" class="form-label">Game Name</label>
+                <input type="text" class="form-control" placeholder="Enter game name" id="name" name="name">
             </div>
             <div class="mb-3">
-                <label for="g_category" class="form-label">Game Category</label>
-                <input type="text" placeholder="Enter game category" class="form-control" id="g_category" name="g_category">
+                <label for="category" class="form-label">Game Category</label>
+                <input type="text" placeholder="Enter game category" class="form-control" id="category" name="category">
             </div>
             <div class="mb-3">
-                <label for="g_device" class="form-label">Game Device</label>
-                    <select class="form-select" aria-label="Default select" name="g_device" id="g_device">
-                        <option value="playstation">Play Station</option>
-                        <option value="xbox">Xbox</option>
-                        <option value="nintindo">Nintindo</option>
-                        <option value="pc">PC</option>
+                <label for="device_type" class="form-label">Game Device</label>
+                    <select class="form-select" aria-label="Default select" name="device_type" id="device_type">
+                        <option value="playstation">playstation</option>
+                        <option value="xbox">xbox</option>
+                        <option value="nintindo">nintindo</option>
+                        <option value="pc">pc</option>
                     </select>
             </div>
             <div class="mb-3">
-                <label for="g_details" class="form-label">Game Description</label>
-                <textarea id="g_details" class="form-control" name="g_details" value="g_details" rows="4" cols="50"></textarea>
+                <label for="description" class="form-label">Game Description</label>
+                <textarea id="description" class="form-control" name="description" value="description" rows="4" cols="50"></textarea>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Create Exchange</button>
+                <button type="submit" class="btn btn-primary" value='Submit'>Create Exchange</button>
                 <button type="clear" class="btn btn-secondary">Clear Form</button>
             </div>
         </form>
