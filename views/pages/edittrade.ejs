@@ -6,11 +6,11 @@
         <form method="POST" action="/trades/<%= game.id %>?_method=PUT" >
             <div class="mb-3">
                 <label for="name" class="form-label">Game Name</label>
-                <input type="text" class="form-control" placeholder="Enter game name" id="name" name="name" value="<%=game.name%>">
+                <input type="text" class="form-control" placeholder="Enter game name" id="name" name="name" value="<%=game.name%>" required>
             </div>
             <div class="mb-3">
                 <label for="category" class="form-label">Game Category</label>
-                <input type="text" placeholder="Enter game category" class="form-control" id="category" name="category" value="<%=game.category%>">
+                <input type="text" placeholder="Enter game category" class="form-control" id="category" name="category" value="<%=game.category%>" required>
             </div>
             <div class="mb-3">
                 <label for="device_type" class="form-label">Game Device</label>
@@ -27,7 +27,7 @@
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Game Description</label>
-                <textarea id="description" class="form-control" name="description" value="description" rows="4" cols="50"><%=game.description%></textarea>
+                <textarea id="description" class="form-control" name="description" value="description" rows="4" cols="50" required minlength="10"><%=game.description%></textarea>
             </div>
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Update</button>

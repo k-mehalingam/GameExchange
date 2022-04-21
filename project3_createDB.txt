@@ -1,0 +1,11 @@
+1. Creating the database
+$	use GamesDB
+
+2. Creating the collection games to store the items
+$	db.createCollection('games')
+
+3. Inserting data into the collection.
+$	db.games.insertMany([{"name": "DOTA 2","category": "MOBA","device_type": "pc","description": "Dota is a series of strategy video games now developed by Valve. The series began in 2003 with the release of Defense of the Ancients, a fan-developed multiplayer online battle arena mod for the video game Warcraft III: Reign of Chaos and its expansion, The Frozen Throne.","image": "/assests/images/moba.jpg","device_img": "/assests/images/pc.jpg"},{"name": "Counter Strike: Global Offensive","category": "Shooting","device_type": "playstation","description": "Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dust2, etc.).","image": "/assests/images/shooting.jpg","device_img": "/assests/images/ps.jpg"},{"name": "Need For Speed","category": "Racing","device_type": "nintindo","description": "Need for Speed is a racing video game franchise published by Electronic Arts and currently developed by Criterion Games, the developers of Burnout. The series generally centers around illicit street racing and tasks players to complete various types of races while evading the local law enforcement in police pursuits.","image": "/assests/images/nfs.jpg","device_img": "/assests/images/nn.jpg"},{"name": "WWE","category" : "Action","device_type": "xbox","description": "WWE 2K, is a series of professional wrestling sports video games based on WWE that launched in 2000. The premise of the series is to emulate pro wrestling, more specifically that of WWE, with various match types, storylines, and characters.","image": "/assests/images/nfs.jpg","device_img": "/assests/images/xbox.jpeg"}])
+
+4. Checking if data is inserted.
+$	db.games.find()
