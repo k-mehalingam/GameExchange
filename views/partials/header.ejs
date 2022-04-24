@@ -5,40 +5,71 @@
         <link href="/css/header.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <nav class="navbar navbar-light nav-bg navbar-fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">
-                    <img src="/assests/images/logo.png" alt="" width="30px" height="20px" class="d-inline-block align-text-top">
-                    <span class="header">Game Exchange</span>
-                </a>
+              <a class="navbar-brand" href="/">
+                <img src="/assests/images/logo.png" alt="" width="30px" height="20px" class="d-inline-block align-text-top">
+                <span class="header">Game Exchange</span>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/trades/">Exchanges</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/trades/new">New Exchange</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <%if(!user) {%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/login">Login</a>
+                        </li>
+                    <%} else {%>
+
+                    <li class="nav-item dropdown justify-content-end">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <%=firstName%>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="/user/profile">User Profile</a></li>
+                          <!-- <li><a class="dropdown-item" href="#">Exchanges</a></li> -->
+                          <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                    <%}%>
+                    <%if(!user) {%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/new">Sign Up</a>
+                        </li>
+                    <%}%>
+                </ul>
+              </div>
             </div>
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/trades/">Exchanges</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/trades/new">New Exchange</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
-                </li>
-            </ul>
-            <ul class="nav justify-content-end">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Karthik</a>
-                    <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">User Profile</a>
-                    <a class="dropdown-item" href="#">Exchanges</a>
-                    <a class="dropdown-item" href="#">Logout</a>
-                    </div>
-                </li>
-            </ul>
         </nav>
-    </body>
-</html>
+        <% if(errorMessages.length > 0) { %>
+            <% errorMessages.forEach(message=>{ %>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <%=message%>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <%});%>
+        <%}%>
+        <% if(successMessages.length > 0) {%>
+            <% successMessages.forEach(message=>{%>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <%=message%>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <%});%>
+        <%}%>

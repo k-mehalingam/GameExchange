@@ -5,15 +5,14 @@ exports.new = (req, res) =>{
 };
 
 exports.index = function(req, res) {
-    console.log("something missing");
     let categories = {};
     let games = model.find();
     model.find()
     .then(games => {
         games.forEach(game => {
-            if(!(game.device_type in categories))
-                categories[game.device_type] = [];
-            categories[game.device_type].push(game)
+            if(!(game.category in categories))
+                categories[game.category] = [];
+            categories[game.category].push(game)
         })
         res.render('./pages/trades', {categories});
     })
@@ -26,6 +25,7 @@ exports.new = function(req, res) {
 
 exports.create = (req,res, next) => {
     let game = new model(req.body);
+    game.created_by = req.session.user;
     game.save()
     .then(game => res.redirect('trades'))
     .catch(err=>{
@@ -43,8 +43,9 @@ exports.show = (req, res, next) => {
         err.status = 400;
         return next(err);
     }
-    model.findById(id)
+    model.findById(id).populate('created_by', 'firstName lastName')
     .then(game =>{
+        console.log(game);
         if(game) {
             return res.render('./pages/trade', {game});
         } else {

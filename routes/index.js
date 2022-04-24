@@ -2,9 +2,10 @@ const express = require('express');
 const rootRouter = express.Router();
 
 var trades = require('./trade.js');
+var users = require('./user.js');
 
 rootRouter.use('/trades',trades);
-
+rootRouter.use('/user', users);
 
 // setup routes
 rootRouter.get('/', function(req, res){

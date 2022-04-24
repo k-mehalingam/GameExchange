@@ -11,19 +11,21 @@
     "url": "git+https://github.com/k-mehalingam/GameExchange.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Karthikeyan Mehalingam",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/k-mehalingam/GameExchange/issues"
   },
   "homepage": "https://github.com/k-mehalingam/GameExchange#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.6.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
-    "luxon": "^2.3.1",
+    "express-session": "^1.17.2",
     "method-override": "^3.0.0",
     "mongoose": "^5.11.15",
-    "morgan": "^1.10.0",
-    "uuid": "^8.3.2"
+    "morgan": "^1.10.0"
   }
 }

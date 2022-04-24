@@ -12,7 +12,7 @@
                 <label for="category" class="form-label">Game Category</label>
                 <input type="text" placeholder="Enter game category" class="form-control" id="category" name="category" value="<%=game.category%>" required>
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label for="device_type" class="form-label">Game Device</label>
                     <select class="form-select" aria-label="Default select" name="device_type" id="device_type">
                         <% var options = ["playstation", "xbox", "nintindo", "pc"]; %>
@@ -24,6 +24,10 @@
                             <%}%>
                         <%});%>
                     </select>
+            </div> -->
+            <div class="mb-3">
+                <label for="image" class="form-label">Image Path</label>
+                <input type="text" placeholder="Enter Image Path" class="form-control" id="image" name="image" value="<%=game.image%>" required>
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Game Description</label>
