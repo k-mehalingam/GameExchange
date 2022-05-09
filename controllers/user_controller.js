@@ -57,7 +57,7 @@ exports.profile = (req, res, next)=> {
     Promise.all([User.findById(id), Game.find({created_by: id}), WishList.find({user_id:id}), Exchanges.find({initiator_id: id}).populate('exchange_item_id', "name")])
     .then(results => {
         const [user, games, wishlist, offers] = results;
-        console.log(offers);
+        // console.log(offers);
         res.render('./user/profile', {user, games, wishlist, offers});
     })
     .catch(err=>next(err));

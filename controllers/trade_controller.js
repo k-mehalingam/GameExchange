@@ -60,9 +60,9 @@ exports.show = (req, res, next) => {
     }
     model.findById(id).populate('created_by', 'firstName lastName')
     .then(game =>{
-        console.log(game);
+        // console.log(game);
         if(game) {
-            console.log(watch);
+            // console.log(watch);
             return res.render('./pages/trade', {game, watch, trade});
         } else {
             let err = new Error('Cannot find a game with id' + id);
@@ -112,8 +112,8 @@ exports.update = (req, res, next) => {
 exports.delete = async (req, res, next) => {
     let id = req.params.id;
     let exchange_details = await Exchanges.find({$or: [{item_id: id},{exchange_item_id: id}]});
-    console.log(exchange_details);
-    if(exchange_details) {
+    // console.log(exchange_details);
+    if(exchange_details.length) {
             await model.updateMany({_id: {$in:[exchange_details[0].item_id, exchange_details[0].exchange_item_id]}}, {exchange_id: null, status: "Available"}, {useFindAndModify: false, runValidators: true});
             await Exchanges.findByIdAndDelete(exchange_details[0].id);
     }
