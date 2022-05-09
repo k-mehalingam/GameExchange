@@ -8,7 +8,9 @@ const gameSchema = new Schema({
         description: {type: String, required: [true, 'description is required'],
         minLength: [10, 'Atleast 10 characters needed']},
         image: {type: String},
-        created_by: {type: Schema.Types.ObjectId, ref: 'User'}
+        created_by: {type: Schema.Types.ObjectId, ref: 'User'},
+        status: {type: String, default: "Available"},
+        exchange_id: {type: Schema.Types.ObjectId, ref: 'Exchange', default: null}
         
     },
     {timestamps: true}

@@ -8,18 +8,24 @@
                 <tr>
                     <th>Game</th>
                     <th>Game Category</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
                 <%games.forEach(game =>{%>
                     <tr>
                         <td><a href="/trades/<%= game.id %>" class="card-link"><p><%= game.name %></p></a></td>
                         <td><%= game.category%></td>
+                        <td><%= game.status%></td>
                         <td>
                             <form>
                                 <button type="submit" class="btn btn-primary" id="update" value="update"
                                 formmethod="GET" formaction="/trades/<%=game.id%>/edit">Edit</button>
                                 <button type="submit" class="btn btn-secondary" id="delete" value="delete"
                                 formmethod="POST" formaction="/trades/<%=game.id%>?_method=DELETE">Delete</button>
+                                <%if(game.exchange_id != undefined){%>
+                                    <button type="submit" class="btn btn-success" id="view" value="view"
+                                        formmethod="GET" formaction="/trades/viewexchange/<%=game.exchange_id%>">Manage Offer</button>
+                                <%}%>
                             </form>
                         </td>
                     </tr>
@@ -27,6 +33,52 @@
             </table>
         <%} else {%>
             <p>You do not have any trade currently.</p>
+        <%}%>
+        <h3>WishList:</h3>
+        <%if(wishlist.length) {%>
+            <p> You have added the following items to your wish list.</p>
+            <table class="table table-light table-hover">
+                <tr>
+                    <th>Game</th>
+                    <th>Action</th>
+                </tr>
+                <%wishlist.forEach(item =>{%>
+                    <tr>
+                        <td><a href="/trades/<%= item.item_id %>" class="card-link"><p><%= item.item_name %></p></a></td>
+                        <td>
+                            <form>
+                                <button type="submit" class="btn btn-secondary" id="delete" value="delete"
+                                formmethod="POST" formaction="/trades/wishlist/<%=item.id%>?_method=DELETE">Un Watch</button>
+                            </form>
+                        </td>
+                    </tr>
+                <%})%>
+            </table>
+        <%} else {%>
+            <p>You do not have anything in wish list.</p>
+        <%}%>
+        <h3>Trade Offers:</h3>
+        <%if(offers.length) {%>
+            <p> You have the following pending Trades.</p>
+            <table class="table table-light table-hover">
+                <tr>
+                    <th>Game</th>
+                    <th>Action</th>
+                </tr>
+                <%offers.forEach(item =>{%>
+                    <tr>
+                        <td><a href="/trades/<%= item.exchange_item_id.id %>" class="card-link"><p><%= item.exchange_item_id.name %></p></a></td>
+                        <td>
+                            <form>
+                                <button type="submit" class="btn btn-danger" id="delete" value="delete"
+                                formmethod="GET" formaction="/trades/respondoffer/<%=item.id%>/cancel">Cancel Offer</button>
+                            </form>
+                        </td>
+                    </tr>
+                <%})%>
+            </table>
+        <%} else {%>
+            <p>You have not yet initated any offers.</p>
         <%}%>
     </div>
 </div>

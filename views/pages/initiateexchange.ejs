@@ -1,0 +1,46 @@
+<%- include('../partials/header'); %>
+<div class="container">
+    <div class="main-container">
+        <h3>Select an Item for Exchange.</h3>
+            <%if(games.length) {%>
+                <h3>Your Available Trades.</h3>
+                <form action='/trades/exchange/' method="POST">
+                <input type="text" value="<%=id%>" class="form-control" id="trade_item_id" name="trade_item_id" readonly hidden>
+                <table class="table table-light table-hover">
+                    <tr>
+                        <th>Name</th>
+                        <th>Cover</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                    </tr>
+                    <%games.forEach(game => {%>
+                        <tr>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="item_id" id="item_id" value="<%=game.id%>">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        <%=game.name%>
+                                    </label>
+                                </div>
+                            </td>
+                            <td><img class="card-img-top" src="<%=game.image%>" alt="Card image cap" style="width:50px;height:50px;"></td>
+                            <td>
+                                <%=game.category%>
+                            </td>
+                            <td>
+                                <%=game.status%>
+                            </td>
+                        </tr>
+                    <%});%>
+                </table>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" value='Submit'>Trade</button>
+                </div>
+                </form>
+            <%} else {%>
+                <P>You do not have items for initiating exchange</P>
+            <%}%>
+    </div>
+</div>
+
+<%- include('../partials/footer'); %>

@@ -13,9 +13,11 @@
     "$date": "2022-04-23T20:26:00.630Z"
   },
   "updatedAt": {
-    "$date": "2022-04-23T20:39:39.274Z"
+    "$date": "2022-05-08T22:29:05.591Z"
   },
-  "__v": 0
+  "__v": 0,
+  "status": "Available",
+  "exchange_id": null
 },{
   "_id": {
     "$oid": "6264611c6fd56f1c2c80e2a6"
@@ -31,9 +33,11 @@
     "$date": "2022-04-23T20:27:08.214Z"
   },
   "updatedAt": {
-    "$date": "2022-04-23T20:27:08.214Z"
+    "$date": "2022-05-08T21:25:34.688Z"
   },
-  "__v": 0
+  "__v": 0,
+  "status": "Available",
+  "exchange_id": null
 },{
   "_id": {
     "$oid": "626461936fd56f1c2c80e2a8"
@@ -49,27 +53,11 @@
     "$date": "2022-04-23T20:29:07.779Z"
   },
   "updatedAt": {
-    "$date": "2022-04-23T20:29:07.779Z"
+    "$date": "2022-05-08T21:18:01.913Z"
   },
-  "__v": 0
-},{
-  "_id": {
-    "$oid": "626461c46fd56f1c2c80e2a9"
-  },
-  "name": "WWE",
-  "category": "XBOX",
-  "image": "/assests/images/nfs.jpg",
-  "description": "WWE 2K, is a series of professional wrestling sports video games based on WWE that launched in 2000. The premise of the series is to emulate pro wrestling, more specifically that of WWE, with various match types, storylines, and characters.",
-  "created_by": {
-    "$oid": "626461546fd56f1c2c80e2a7"
-  },
-  "createdAt": {
-    "$date": "2022-04-23T20:29:56.809Z"
-  },
-  "updatedAt": {
-    "$date": "2022-04-23T20:29:56.809Z"
-  },
-  "__v": 0
+  "__v": 0,
+  "status": "Available",
+  "exchange_id": null
 },{
   "_id": {
     "$oid": "626466366fd56f1c2c80e2ab"
@@ -85,9 +73,11 @@
     "$date": "2022-04-23T20:48:54.583Z"
   },
   "updatedAt": {
-    "$date": "2022-04-23T20:48:54.583Z"
+    "$date": "2022-05-08T22:14:17.116Z"
   },
-  "__v": 0
+  "__v": 0,
+  "status": "Available",
+  "exchange_id": null
 },{
   "_id": {
     "$oid": "6264bc5c6fd56f1c2c80e2ac"
@@ -103,7 +93,29 @@
     "$date": "2022-04-24T02:56:28.747Z"
   },
   "updatedAt": {
-    "$date": "2022-04-24T02:56:44.843Z"
+    "$date": "2022-05-08T21:25:46.944Z"
+  },
+  "__v": 0,
+  "status": "Available",
+  "exchange_id": null
+},{
+  "_id": {
+    "$oid": "6278423f25b046483c336145"
+  },
+  "status": "Available",
+  "exchange_id": null,
+  "name": "WWE",
+  "category": "XBOX",
+  "image": "/assests/images/nfs.jpg",
+  "description": "WWE 2K, is a series of professional wrestling sports video games based on WWE that launched in 2000. The premise of the series is to emulate pro wrestling, more specifically that of WWE, with various match types, storylines, and characters.",
+  "created_by": {
+    "$oid": "626461546fd56f1c2c80e2a7"
+  },
+  "createdAt": {
+    "$date": "2022-05-08T22:20:47.830Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-08T22:20:47.830Z"
   },
   "__v": 0
 }]

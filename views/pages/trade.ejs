@@ -26,6 +26,25 @@
                                 formmethod="POST" formaction="/trades/<%=game.id%>?_method=DELETE">Delete</button>
                             </div>
                         </form>
+                    <%} else {%>
+                        <form>
+                            <div class="col-12">
+                                <%if(!trade) {%>
+                                    <button type="submit" class="btn btn-primary" id="trade" value="trade"
+                                    formmethod="GET" formaction="/trades/newexchange/<%=game.id%>">Trade</button>
+                                <%} else {%>
+                                    <button type="submit" class="btn btn-danger" id="delete" value="delete"
+                                    formmethod="GET" formaction="/trades/exchangeaction/<%=trade.id%>/cancel">Cancel Offer</button>
+                                <%}%>
+                                <%if(!watch) {%>
+                                    <button type="submit" class="btn btn-success" id="wishlist" value="wishlist"
+                                    formmethod="POST" formaction="/trades/wishlist/<%=game.id%>">Watch</button>
+                                <%} else { %>
+                                    <button type="submit" class="btn btn-success" id="unwatch" value="unwatch"
+                                    formmethod="POST" formaction="/trades/wishlist/<%=watch.id%>?_method=DELETE">Un Watch</button>
+                                <%}%>
+                            </div>
+                        </form>
                     <%}%>
                 </div>
             </div>

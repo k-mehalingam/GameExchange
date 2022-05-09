@@ -1,0 +1,45 @@
+<%- include('../partials/header'); %>
+<div class="container">
+    <div class="main-container">
+        <h3>Exchange Details</h3>
+            <%if(exchange) {%>
+               <table>
+                   <tr>
+                       <td>
+                        <%if(item1.image) {%>
+                            <img class="card-img-top" src="<%= item1.image %> " alt="Card image cap" style="max-width:50%;height:auto;">
+                            <p1><%=item1.name%></p1>
+                        <%}else{%>
+                            <img class="card-img-top" src="/assests/images/game.jpeg" alt="Card image cap" style="max-width:50%;height:auto;">
+                        <%}%>
+                       </td>
+                       <td>
+                        <%if(item1.image) {%>
+                            <img class="card-img-top" src="<%= item2.image %> " alt="Card image cap" style="max-width:50%;height:auto;">
+                            <p1><%=item2.name%></p1>
+                        <%}else{%>
+                            <img class="card-img-top" src="/assests/images/game.jpeg" alt="Card image cap" style="max-width:50%;height:auto;">
+                        <%}%>
+                       </td>
+                   </tr>
+                   <tr>
+                       <td colspan="2">
+                        <form>
+                                <%if(type) {%>
+                                    <button type="submit" class="btn btn-success" id="accept" value="accept"
+                                    formmethod="GET" formaction="/trades/respondoffer/<%=exchange.id%>/accept">Accept</button>
+                                    <button type="submit" class="btn btn-danger" id="reject" value="reject"
+                                    formmethod="GET" formaction="/trades/respondoffer/<%=exchange.id%>/reject">Reject</button>
+                                <%} else {%>
+                                    <button type="submit" class="btn btn-danger" id="cancel" value="cancel"
+                                    formmethod="GET" formaction="/trades/respondoffer/<%=exchange.id%>/cancel">Cancel Offer</button>
+                                <%}%>
+                        </form>
+                        </td>
+                   </tr>
+               </table> 
+            <%}%>
+    </div>
+</div>
+
+<%- include('../partials/footer'); %>
